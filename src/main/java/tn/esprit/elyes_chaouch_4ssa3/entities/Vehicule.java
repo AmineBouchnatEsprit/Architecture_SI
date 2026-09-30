@@ -1,16 +1,13 @@
 package tn.esprit.elyes_chaouch_4ssa3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.EnumType;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,6 +15,17 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class Vehicule {
+    @ManyToOne
+    @JoinColumn(name = "agence_id")
+    private Agence agence;
+
+    @ManyToMany
+    @JoinTable(
+            name = "vehicule_equipement",
+            joinColumns = @JoinColumn(name = "vehicule_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipement_id")
+    )
+    private Set<Equipement> equipements;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idVehicule;

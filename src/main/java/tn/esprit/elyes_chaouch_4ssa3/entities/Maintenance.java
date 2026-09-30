@@ -1,9 +1,7 @@
 package tn.esprit.elyes_chaouch_4ssa3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +14,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class Maintenance {
+    @ManyToOne
+    @JoinColumn(name = "vehicule_id")
+    private Vehicule vehicule;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idMaintenance;

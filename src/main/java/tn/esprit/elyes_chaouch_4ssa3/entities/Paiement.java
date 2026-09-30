@@ -1,11 +1,7 @@
 package tn.esprit.elyes_chaouch_4ssa3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.EnumType;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Getter;
@@ -19,6 +15,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class Paiement {
+    @ManyToOne
+    @JoinColumn(name = "contrat_id")
+    private Contrat contrat;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idPaiement;
