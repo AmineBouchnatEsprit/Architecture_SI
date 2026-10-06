@@ -1,4 +1,4 @@
-package tn.esprit.jemmali_eya_4ssa3.entities;
+package tn.esprit.bouchnak_amine_4ssa3.entities;
 
 public class Contrat {
 }
