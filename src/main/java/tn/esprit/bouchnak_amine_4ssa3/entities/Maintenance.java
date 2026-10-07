@@ -22,4 +22,8 @@ public class Maintenance {
     private LocalDate dateDebut;
     private LocalDate dateFin;
     private String description;
+
+    // Unidirectionnelle : Maintenance -> Vehicule
+    @ManyToOne
+    private Vehicule vehicule;
 }

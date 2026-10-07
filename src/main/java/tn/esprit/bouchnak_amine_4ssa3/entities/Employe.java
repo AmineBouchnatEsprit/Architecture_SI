@@ -1,9 +1,6 @@
 package tn.esprit.bouchnak_amine_4ssa3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +11,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Employe {
 
     @Id
@@ -23,6 +19,10 @@ public class Employe {
 
     private String nom;
     private String prenom;
+
+    @Enumerated(EnumType.STRING)
     private RoleEmploye role;
 
+    @ManyToOne
+    private Agence agence;
 }
